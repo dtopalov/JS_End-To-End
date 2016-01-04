@@ -1,0 +1,12 @@
+doctype html
+head
+    meta(charset="UTF-8")
+    title Uploaded Files
+body
+    ul
+        h3 Uploaded files:
+        each fileName in files
+            li
+                a(href='../uploads/' + fileName) !{fileName}
+    h4
+        a(href='/') Upload another
