@@ -1,0 +1,14 @@
+{
+  "name": "mongochat",
+  "version": "1.0.0",
+  "description": "Mongo db hw",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "dt",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^4.3.4"
+  }
+}
