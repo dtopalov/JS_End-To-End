@@ -1,51 +1,12 @@
 "use strict";
 
-let mongoose = require('mongoose'),
-    db = require('./db-settings'),
-    Schema = mongoose.Schema,
-    userSchema,
-    messageSchema,
-    User,
-    Message;
+let db = require('./db-settings'),
+    models = require('./models'),
+    User = models.users.User,
+    Message = models.messages.Message;
 
-userSchema = new Schema({
-    user: {
-        type: String,
-        required: true,
-        index: { unique: true }
-    },
-    pass: {
-        type: String,
-        required: true
-    }
-});
-userSchema.path('user').validate(function(v) {
-    return v.length >= 3 && v.length < 25;
-});
-userSchema.path('pass').validate(function(v) {
-    return v.length >= 3 && v.length < 25;
-});
-
-messageSchema = new Schema({
-    from: {
-        type: String,
-        required: true
-    },
-    to: {
-        type: String,
-        required: true
-    },
-    text: {
-        type: String,
-        required: true
-    }
-});
-
-User = mongoose.model('User', userSchema);
-Message = mongoose.model('Message', messageSchema);
-
-function registerUser(userObj){
-    if(!userObj || typeof userObj !== 'object'){
+function registerUser(userObj) {
+    if (!userObj || typeof userObj !== 'object') {
         console.log('Invalid user');
         return;
     }
@@ -57,8 +18,8 @@ function registerUser(userObj){
     });
 }
 
-function sendMessage(messageObj){
-    if(!messageObj || typeof messageObj !== 'object'){
+function sendMessage(messageObj) {
+    if (!messageObj || typeof messageObj !== 'object') {
         console.log('Invalid message');
         return;
     }
@@ -70,11 +31,9 @@ function sendMessage(messageObj){
     });
 }
 
-function getMessages(members){
-    if(!members ||
-        typeof members !== 'object' ||
-        !members.with ||
-        !members.and){
+function getMessages(members) {
+    if (!members ||
+        typeof members !== 'object' || !members.with || !members.and) {
         console.log('Invalid user');
         return;
     }
@@ -82,8 +41,8 @@ function getMessages(members){
     return Message.find()
         .where('from').in([members.with, members.and])
         .where('to').in([members.with, members.and])
-        .exec(function(err, receivedMessages){
-            if(err){
+        .exec(function (err, receivedMessages) {
+            if (err) {
                 console.log(err);
                 return
             }
@@ -95,5 +54,6 @@ function getMessages(members){
 module.exports = {
     registerUser,
     sendMessage,
-    getMessages
+    getMessages,
+    db
 };

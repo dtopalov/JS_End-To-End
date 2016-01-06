@@ -21,4 +21,5 @@ chatDb.getMessages({
     and: 'NikolayKostov'
 }).then(function(res){
     console.log(`All messages: ${res}`);
+    db.disconnect();
 });
