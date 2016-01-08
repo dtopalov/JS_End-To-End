@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div(class='container')
+        h1= title
+        ul
+            h3 All Tablets:
+            li
+                div(class='cell') MANIFACTURER
+                div(class='cell') MODEL
+                div(class='cell') PRICE
+                div(class='cell') BUY
+            each tablet in data
+                li
+                    div(class='cell')= tablet.manufacturer
+                    div(class='cell')= tablet.model
+                    div(class='cell')= tablet.price
+                    div(class='cell btn btn-primary') BUY
+

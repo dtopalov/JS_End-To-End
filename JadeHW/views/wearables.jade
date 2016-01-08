@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div(class='container')
+        h1= title
+        ul
+            h3 All Wearables:
+            li
+                div(class='cell') MANIFACTURER
+                div(class='cell') MODEL
+                div(class='cell') PRICE
+                div(class='cell') BUY
+            each w in data
+                li
+                    div(class='cell')= w.manufacturer
+                    div(class='cell')= w.model
+                    div(class='cell')= w.price
+                    div(class='cell btn btn-primary') BUY
