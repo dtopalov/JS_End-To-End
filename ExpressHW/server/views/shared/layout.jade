@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    title
+      | Welcome to our site!
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    nav(class='navbar navbar-inverse')
+      div(class='container-fluid')
+        div(class='navbar-header')
+          a(class='navbar-brand', href='/') Jade HW
+        ul(class='nav navbar-nav')
+          each cat in [{path: '/', name: 'Home'},{path: '/phones', name: 'Phones'},{path: '/tablets', name: 'Tablets'},{path: '/wearables', name: 'Wearables'}]
+            li
+              a(href=cat.path)= cat.name
+        ul.nav.navbar-nav.navbar-right
+          if (currentUser)
+            li
+              a(href="/upload") File upload
+            li
+              a(href="/profile") #{currentUser.username}'s profile
+            li
+              a(href="/logout") Logout
+          else
+            li
+              a(href="/register") Register
+            li
+              a(href="/login") Login
+    block content
+    hr
+    footer
+      p Some footer
+
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    script(src='/javascripts/home.js')

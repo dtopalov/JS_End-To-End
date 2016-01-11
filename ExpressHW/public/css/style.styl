@@ -1,0 +1,65 @@
+body
+  font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+a
+  color: #00B7FF
+div.container
+  ul
+    width 650px
+    li
+      list-style-type none
+      border 1px solid black
+      border-bottom none
+      padding 5px
+
+      div.cell
+        width 25%
+        display inline-block
+        padding 5px
+        border-right 1px solid #337ab7
+        font-size 1.2em
+    li:first-of-type
+      font-weight bold
+      border-top-left-radius 10px
+      border-top-right-radius 10px
+    li:last-of-type
+      border-bottom 1px solid black
+      border-bottom-left-radius 10px
+      border-bottom-right-radius 10px
+    h3
+      border-bottom 1px solid black
+      text-align center
+footer
+  p
+    text-align center
+    font-size 1.1em
+    padding 5px 0 12px
+hr
+  width 95%
+  color black
+  background-color black
+  height 2px
+#phones
+  position relative
+  background-image url('/images/Smartphones.png')
+  transform rotate(-9deg)
+#tablets
+  position relative
+  background-image url('/images/tablets.jpg')
+  background-position 400px 350px
+  z-index 5
+#wearables
+  position relative
+  background url('/images/wearable-devices.jpg') 0 0/500px 350px
+  transform rotate(9deg)
+.image-container
+  width 30%
+  height 350px
+  display inline-block
+  border 1px solid black
+#title
+  position relative
+  top -20px
+  text-align center
+input[type='submit'] {
+  margin-right: 5px;
+}

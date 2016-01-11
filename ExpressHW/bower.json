@@ -1,0 +1,30 @@
+{
+  "name": "jade",
+  "version": "0.1.0",
+  "authors": [
+    "dtopalov <dimiter.topalov79@gmail.com>"
+  ],
+  "description": "jade and express hw",
+  "main": "server.js",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "jade",
+    "express"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.0"
+  }
+}

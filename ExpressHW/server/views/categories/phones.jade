@@ -1,0 +1,18 @@
+extends ../shared/layout
+
+block content
+    div(class='container')
+        h1= title
+        ul
+            h3 All phones:
+            li
+                div(class='cell') MANIFACTURER
+                div(class='cell') MODEL
+                div(class='cell') PRICE
+                div(class='cell') BUY
+            each phone in data
+                li
+                    div(class='cell')= phone.manufacturer
+                    div(class='cell')= phone.model
+                    div(class='cell')= phone.price
+                    div(class='cell btn btn-primary') BUY
